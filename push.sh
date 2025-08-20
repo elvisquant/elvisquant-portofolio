@@ -6,7 +6,7 @@
 # =============================
 
 # ==== CONFIG ====
-REMOTE_URL="git@github.com:elvispronda/elvisquant-portofolio.git"  # ✅ Replace if needed
+REMOTE_URL="git@github.com:elvisquant/elvisquant-portofolio.git"  # ✅ Replace if needed
 BRANCH_NAME="main"
 COMMIT_MESSAGE="Update with new changes: Update thie project with new features"
 
