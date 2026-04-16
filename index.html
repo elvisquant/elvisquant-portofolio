@@ -1,883 +1,1579 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-      Elvis Ndayishimiye | Principal DevOps & Data Systems Architect
-    </title>
-    <meta
-      name="description"
-      content="Senior DevOps Engineer & Data Architect specializing in high-availability systems, Kubernetes orchestration, and distributed data pipelines."
-    />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-
-    <!-- Tailwind CSS -->
+    <title>Elvis Ndayishimiye | Principal DevOps & Data Systems Architect</title>
+    <meta name="description" content="Senior DevOps Engineer & Data Architect specializing in high-availability systems, Kubernetes orchestration, and distributed data pipelines." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              heading: ["Montserrat", "sans-serif"],
-              mono: ["Fira Code", "monospace"],
-            },
-            colors: {
-              primary: {
-                50: "#f0f9ff",
-                100: "#e0f2fe",
-                200: "#bae6fd",
-                300: "#7dd3fc",
-                400: "#38bdf8",
-                500: "#0ea5e9",
-                600: "#0284c7",
-                700: "#0369a1",
-                800: "#075985",
-                900: "#0c4a6e",
-              },
-            },
-            animation: {
-              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-              float: "floating 3s ease-in-out infinite",
-            },
-            keyframes: {
-              floating: {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-10px)" },
-              },
-            },
-          },
-        },
-      };
-    </script>
-
-    <!-- Google Fonts & Scripts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <!-- Vendor CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-      :root {
-        --primary-color: #0ea5e9;
-      }
-      body {
-        transition: background-color 0.3s ease;
-      }
+        :root {
+            --bg: #EEEEEE;
+            --surface: #DDDDDD;
+            --mid: #76885B;
+            --accent: #627254;
+            --text: #2a2a2a;
+            --muted: #5a5a5a;
+            --white: #faf9f7;
+        }
 
-      /* King Senior Glow Effect */
-      .glow-card {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .glow-card:hover {
-        box-shadow: 0 0 30px rgba(14, 165, 233, 0.15);
-        border-color: var(--primary-color);
-        transform: translateY(-5px);
-      }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-      /* Terminal Styling */
-      .terminal-window {
-        background: #1e1e1e;
-        border-radius: 8px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        font-family: "Fira Code", monospace;
-      }
+        html {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-      .terminal-header {
-        background: #333;
-        padding: 8px 15px;
-        border-radius: 8px 8px 0 0;
-        display: flex;
-        gap: 6px;
-      }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+        }
 
-      .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-      .dot-red {
-        background: #ff5f56;
-      }
-      .dot-yellow {
-        background: #ffbd2e;
-      }
-      .dot-green {
-        background: #27c93f;
-      }
+        /* BRANDING CUBE/PILL LOGO */
+        .navbar-logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.35rem 1rem 0.35rem 0.35rem;
+            background: var(--white);
+            border: 1px solid var(--surface);
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #111827;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #374151;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-color);
-      }
+        .navbar-logo-pill:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            border-color: var(--mid);
+        }
 
-      .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
+        .logo-initials-circle {
+            width: 32px;
+            height: 32px;
+            background: var(--mid);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Century Gothic", sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
 
-      .sidebar {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
+        .logo-brand-text {
+            font-family: "Century Gothic", "AppleGothic", "Futura", sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
 
-      /* Code typing animation effect */
-      .code-accent {
-        color: #38bdf8;
-        font-family: "Fira Code", monospace;
-      }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .brand-font,
+        .display {
+            font-family: "Century Gothic", "AppleGothic", "Futura", sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* NAVBAR */
+        .nav-pill {
+            display: inline-flex;
+            align-items: center;
+            border: 1.5px solid var(--surface);
+            border-radius: 999px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .nav-pill a {
+            padding: 0.45rem 1.1rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s, background 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-pill a:hover {
+            color: var(--accent);
+            background: var(--bg);
+        }
+
+        .nav-pill .sep {
+            color: #ccc;
+            font-size: 0.8rem;
+            pointer-events: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 0.55rem 1.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--mid);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            border-radius: 999px;
+            padding: 0.5rem 1.3rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* HEADINGS */
+        .display {
+            font-family: "Century Gothic", "AppleGothic", "Futura", sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
+            line-height: 1.1;
+        }
+
+        .display em {
+            color: var(--mid);
+            font-style: normal;
+        }
+
+        .section-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mid);
+            font-weight: 600;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--white);
+            border-radius: 4px;
+            /* rounded-sm */
+            overflow: hidden;
+            border: 1px solid var(--surface);
+            transition: transform 0.25s, box-shadow 0.25s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(98, 114, 84, 0.12);
+        }
+
+        /* PROGRESS BAR */
+        .bar-track {
+            background: var(--surface);
+            border-radius: 99px;
+            height: 5px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: var(--accent);
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            background: var(--mid);
+            color: #fff;
+            border-radius: 24px;
+        }
+
+        /* SECTOR GRID */
+        .sector-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        /* MOBILE MENU */
+        #mobile-menu {
+            display: none;
+        }
+
+        #mobile-menu.open {
+            display: flex;
+        }
+
+        /* DIVIDER TEXT */
+        .brand-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0.45;
+        }
+
+        /* SCROLL PROGRESS */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            z-index: 200;
+            width: 0;
+            transition: width 0.1s;
+        }
+
+        /* TERMINAL */
+        .terminal {
+            background: #1a1a18;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .t-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        /* WHATSAPP */
+        .wa-btn {
+            position: fixed;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            z-index: 100;
+            background: #25D366;
+            color: #fff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+            transition: transform 0.2s;
+        }
+
+        .wa-btn:hover {
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        /* SWIPER OVERRIDES */
+        .projects-slider {
+            padding: 2rem 1rem 4rem 1rem !important;
+            margin: -2rem -1rem !important;
+        }
+
+        .swiper-slide {
+            height: auto !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--accent) !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-pill {
+                display: none;
+            }
+
+            .display {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* ORBIT ANIMATION */
+        .orbit-container {
+            position: relative;
+            width: min(500px, 90vw);
+            height: min(500px, 90vw);
+            margin: 4rem auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-icon {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: var(--white);
+            border: 1px solid var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            z-index: 2;
+            animation: orbit-reverse 40s linear infinite;
+        }
+
+        .orbit-icon:hover {
+            transform: scale(1.2) !important;
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(98, 114, 84, 0.2);
+            z-index: 10;
+            animation-play-state: paused;
+        }
+
+        .orbit-icon i {
+            font-size: 1.8rem;
+        }
+
+        /* VISUAL-FIRST SKILLS LAYOUT */
+        .skills-split-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .skills-split-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+        }
+
+        /* TEXT EXPERTISE BLOCKS (RIGHT) */
+        .skill-desc-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .skill-desc-title {
+            font-family: "Century Gothic", sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-desc-title i {
+            color: var(--mid);
+            font-size: 1.2rem;
+        }
+
+        .skill-desc-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--muted);
+            border-left: 2px solid var(--surface);
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        /* MINI MULTI-RING SKILLS ORBIT (LEFT) */
+        .skills-orbit-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            max-width: 320px;
+            /* Scaled down for 'small' look */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .orbit-ring-outer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .orbit-ring-accent {
+            width: 78%;
+            height: 78%;
+            border: 1px dashed var(--accent);
+            opacity: 0.25;
+        }
+
+        .orbit-ring-inner {
+            width: 60%;
+            height: 60%;
+        }
+
+        .orbit-spin {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: orbitSpin 36s linear infinite;
+        }
+
+        .orbit-pod {
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            /* Smaller pods */
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-pod i {
+            animation: orbitCounterSpin 36s linear infinite;
+            font-size: 1.4rem;
+            /* Scaled icons */
+        }
+
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 80px;
+            height: 80px;
+            /* Scaled center */
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .orbit-center-inner {
+            width: 64px;
+            height: 64px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: "Century Gothic", sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        @keyframes orbitSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbitCounterSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* SERVICES REDESIGN CSS */
+        .services-redesign-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            background: #fff;
+            /* border-radius: 12px; */
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .service-card-redesign {
+            padding: 2.5rem 2.5rem 0 2.5rem;
+            position: relative;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+            min-height: 420px;
+        }
+
+        .service-card-redesign.border-right {
+            border-right: 1px dashed rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card-redesign.full-width {
+            grid-column: span 2;
+            border-bottom: none;
+            min-height: 380px;
+        }
+
+        .service-icon-circle {
+            width: 48px;
+            height: 48px;
+            border: 1.5px solid #ff7b3a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff7b3a;
+        }
+
+        .service-card-title {
+            font-family: "Century Gothic", "AppleGothic", "Futura", sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .service-card-desc {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            max-width: 85%;
+        }
+
+        .service-card-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            object-fit: contain;
+            object-position: bottom right;
+        }
+
+        @media (max-width: 1024px) {
+            .services-redesign-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card-redesign.border-right {
+                border-right: none;
+            }
+
+            .service-card-redesign.full-width {
+                grid-column: span 1;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .service-card-modern,
+            .service-card-modern.large {
+                grid-column: span 12;
+            }
+
+            .orbit-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .orbit-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .orbit-icon i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* STATIC 3D ROOM (TURNOR) */
+        .hero-perspective-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            perspective: 1200px;
+            background: #fafaf8;
+        }
+
+        .grid-scene {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            /* Static as requested */
+        }
+
+        /* COMPACT 3D ROOM (No Ceiling) */
+        .hero-perspective-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            perspective: 1000px;
+            perspective-origin: 50% 40%;
+            background: #fafaf8;
+        }
+
+        .grid-scene {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .grid-plane {
+            position: absolute;
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Perspective Math for full-screen corner hit without ceiling */
+        .grid-plane.floor {
+            width: 100%;
+            height: 1000px;
+            bottom: 0;
+            left: 0;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+
+        .grid-plane.left {
+            width: 1200px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transform: rotateY(90deg);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+        }
+
+        .grid-plane.right {
+            width: 1200px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+        }
+
+        .grid-plane.back {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateZ(-1000px);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+        }
+
+        .tunnel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(250, 250, 248, 0.8) 0%, transparent 40%, #fafaf8 95%);
+            z-index: 1;
+        }
+
+        /* BIG TITLE CUBE */
+        .big-cube-container {
+            position: relative;
+            width: 400px;
+            height: 380px;
+            margin: 0 auto;
+            perspective: 1500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .big-cube {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateBigCube 30s infinite linear;
+            pointer-events: none;
+        }
+
+        .big-cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(118, 136, 91, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(1px);
+        }
+
+        .face-front {
+            transform: rotateY(0deg) translateZ(200px);
+        }
+
+        .face-back {
+            transform: rotateY(180deg) translateZ(200px);
+        }
+
+        .face-right {
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .face-left {
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .face-top {
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .face-bottom {
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+
+        @keyframes rotateBigCube {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(360deg) rotateY(720deg);
+            }
+        }
+
+        .big-cube-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            pointer-events: auto;
+            max-width: 90%;
+        }
+
+        /* NOTIFICATION BADGE */
+        .notification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--surface);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        /* VERTICAL LANG TOGGLE (LEFT) */
+        .lang-toggle {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1a1a1a;
+            padding: 5px;
+            border-radius: 999px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 100;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .lang-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-btn.active {
+            background: #333;
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .lang-toggle {
+                left: 1rem;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body
-    class="bg-gray-50 font-sans text-gray-700 dark:bg-gray-900 dark:text-gray-300"
-  >
-    <!-- Custom Cursor / Progress Top Bar -->
-    <div
-      id="scroll-progress"
-      class="fixed top-0 left-0 h-1 bg-primary-500 z-[100] transition-all duration-150"
-      style="width: 0%"
-    ></div>
+<body>
 
-    <!-- Theme Toggle -->
-    <div
-      class="theme-toggle fixed top-6 right-6 md:top-10 md:right-10 w-12 h-12 glass rounded-full flex items-center justify-center shadow-2xl z-50 cursor-pointer text-xl hover:scale-110 active:scale-95 transition-all"
-      id="theme-toggle"
-    >
-      <i class="fas fa-moon" id="theme-icon"></i>
-    </div>
+    <div id="scroll-progress"></div>
 
-    <!-- WhatsApp -->
-    <a
-      href="https://wa.me/27781199072"
-      class="whatsapp-float fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 animate-float hover:rotate-12 transition-all"
-    >
-      <i class="fab fa-whatsapp"></i>
+    <!-- NAVBAR -->
+    <nav style="position:sticky;top:0;z-index:100;background:rgba(238,238,238,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--surface);">
+        <div style="max-width:1200px;margin:0 auto;padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <a href="#hero" class="navbar-logo-pill">
+                <div class="logo-initials-circle">EN</div>
+                <span class="logo-brand-text">ELVIS</span>
+            </a>
+
+            <div class="nav-pill">
+                <a href="#hero">Home</a>
+                <span class="sep">|</span>
+                <a href="#about">About</a>
+                <span class="sep">|</span>
+                <a href="#skills">Skills</a>
+                <span class="sep">|</span>
+                <a href="#projects">Projects</a>
+                <span class="sep">|</span>
+                <a href="#services">Services</a>
+                <span class="sep">|</span>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div style="display:flex;gap:0.6rem;align-items:center;">
+                <a href="#contact" class="btn-primary">Hire Me</a>
+                <a href="#contact" class="btn-outline" style="display:none;" id="cta-call">Book a Call</a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="hamburger" style="display:none;background:none;border:none;cursor:pointer;color:var(--accent);" aria-label="Menu">
+                <i data-feather="menu" style="width:22px;height:22px;"></i>
+            </button>
+        </div>
+
+        <!-- Mobile nav -->
+        <div id="mobile-menu" style="flex-direction:column;padding:1rem 2rem 1.5rem;gap:0.25rem;border-top:1px solid var(--surface);">
+            <a href="#hero" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;border-bottom:1px solid var(--surface);" onclick="closeMobile()">Home</a>
+            <a href="#about" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;border-bottom:1px solid var(--surface);" onclick="closeMobile()">About</a>
+            <a href="#skills" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;border-bottom:1px solid var(--surface);" onclick="closeMobile()">Skills</a>
+            <a href="#projects" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;border-bottom:1px solid var(--surface);" onclick="closeMobile()">Projects</a>
+            <a href="#services" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;border-bottom:1px solid var(--surface);" onclick="closeMobile()">Services</a>
+            <a href="#contact" style="padding:0.6rem 0;color:var(--text);text-decoration:none;font-weight:500;" onclick="closeMobile()">Contact</a>
+        </div>
+    </nav>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/27781199072" class="wa-btn" title="WhatsApp">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
     </a>
 
-    <!-- Mobile Menu Button -->
-    <button
-      id="menu-toggle"
-      class="fixed top-6 left-6 z-50 lg:hidden glass p-4 rounded-xl text-primary-500 shadow-xl"
-    >
-      <i class="fas fa-bars text-xl" id="menu-icon"></i>
-    </button>
+    <!-- HERO -->
+    <section id="hero" style="background:var(--bg);min-height:90vh;display:flex;align-items:center;padding:5rem 2rem 3rem; position:relative;">
 
-    <!-- Sidebar Navigation -->
-    <header
-      id="header"
-      class="sidebar fixed top-0 left-0 h-full w-72 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex flex-col z-40 border-r border-gray-200 dark:border-white/5 lg:translate-x-0 -translate-x-full"
-    >
-      <div class="p-8 flex flex-col h-full">
-        <div class="flex flex-col items-center mb-10">
-          <div class="relative group">
-            <div
-              class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"
-            ></div>
-            <div
-              class="relative w-24 h-24 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border border-gray-100 dark:border-gray-700 shadow-inner"
-            >
-              <span
-                class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-tr from-primary-600 to-blue-400"
-                >EN</span
-              >
+        <!-- FULL 3D CUBE ROOM -->
+        <div class="hero-perspective-container">
+            <div class="grid-scene">
+                <div class="grid-plane floor"></div>
+                <div class="grid-plane left"></div>
+                <div class="grid-plane right"></div>
+                <div class="grid-plane back"></div>
             </div>
-          </div>
-          <h1
-            class="text-xl font-bold text-gray-800 dark:text-white mt-4 font-heading tracking-tight"
-          >
-            Elvis Ndayishimiye
-          </h1>
-          <div class="flex items-center mt-1">
-            <span
-              class="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"
-            ></span>
-            <p
-              class="text-xs font-mono uppercase tracking-widest text-gray-500 dark:text-gray-400"
-            >
-              System Ready
+            <div class="tunnel-overlay"></div>
+        </div>
+
+        <div style="max-width:1100px; margin:0 auto; width:100%; position:relative; z-index:1; padding:0 2rem;">
+
+            <div class="display" style="text-align:center;max-width:800px;margin:0 auto 1.5rem; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div>Build faster,<br><em>scale smarter.</em></div>
+
+            </div>
+
+            <p style="text-align:center;max-width:560px;margin:0 auto 2.5rem;color:var(--muted);font-size:1rem;line-height:1.7;">
+                I make your infrastructure bulletproof and your pipelines lightning-fast — crafting self-healing cloud systems and data architectures that let your business scale without friction.
             </p>
-          </div>
-        </div>
 
-        <nav id="navmenu" class="flex-grow">
-          <ul class="space-y-1">
-            <li>
-              <a
-                href="#hero"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group active"
-                ><i
-                  class="fas fa-terminal mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">root@home</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="#about"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group"
-                ><i
-                  class="fas fa-user-astronaut mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">About</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="#skills"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group"
-                ><i
-                  class="fas fa-layer-group mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">Stack</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="#projects"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group"
-                ><i
-                  class="fas fa-code-branch mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">Deployments</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="#services"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group"
-                ><i
-                  class="fas fa-server mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">Solutions</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="#contact"
-                class="nav-link flex items-center px-4 py-3 rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20 group"
-                ><i
-                  class="fas fa-envelope-open-text mr-4 text-primary-500 opacity-70 group-hover:opacity-100"
-                ></i
-                ><span class="font-medium">Contact</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <div class="mt-auto pt-6">
-          <div class="flex justify-center space-x-4 mb-6">
-            <a
-              href="https://github.com/elvisquant"
-              class="text-gray-400 hover:text-primary-500 transition-colors text-xl"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="#"
-              class="text-gray-400 hover:text-primary-500 transition-colors text-xl"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://x.com/elvisquant"
-              class="text-gray-400 hover:text-primary-500 transition-colors text-xl"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </div>
-          <a
-            href="#contact"
-            class="block w-full bg-primary-600 hover:bg-primary-700 text-white text-center py-4 rounded-xl font-bold shadow-lg shadow-primary-500/30 transition-all hover:-translate-y-1"
-          >
-            INITIATE HIRE
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="ml-0 lg:ml-72">
-      <!-- Hero Section -->
-      <section
-        id="hero"
-        class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900"
-      >
-        <!-- Modern Grid Background -->
-        <div
-          class="absolute inset-0 z-0 opacity-20"
-          style="
-            background-image: radial-gradient(#0ea5e9 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-          "
-        ></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-          <div class="flex flex-col items-center">
-            <div
-              class="inline-block px-4 py-2 glass rounded-full text-primary-400 text-xs font-mono mb-6"
-              data-aos="fade-down"
-            >
-              SYSTEM_STATUS:
-              <span class="text-green-400">OPERATIONAL</span> v4.2.0
+            <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;">
+                <a href="#projects" class="btn-primary" style="font-size:0.9rem;padding:0.7rem 1.8rem;">View Deployments</a>
+                <a href="#contact" class="btn-outline" style="font-size:0.9rem;padding:0.7rem 1.8rem;">Book a Call</a>
             </div>
-            <h1
-              class="text-5xl md:text-8xl font-black text-white mb-6 font-heading text-center tracking-tighter"
-              data-aos="zoom-out"
-            >
-              ELVIS
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-600"
-                >NDAYISHIMIYE</span
-              >
-            </h1>
 
-            <!-- THE TERMINAL -->
-            <div
-              class="w-full max-w-2xl terminal-window mb-10 overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="terminal-header">
-                <div class="dot dot-red"></div>
-                <div class="dot dot-yellow"></div>
-                <div class="dot dot-green"></div>
-                <span class="ml-4 text-xs text-gray-500 font-mono"
-                  >bash — 80x24</span
-                >
-              </div>
-              <div class="p-6 text-sm md:text-base font-mono min-h-[160px]">
-                <div class="flex">
-                  <span class="text-green-400 mr-2">➜</span>
-                  <span class="text-blue-400 mr-2">~/portfolio</span>
-                  <span class="text-gray-300">whoami</span>
+            <!-- Terminal -->
+            <div class="terminal" style="max-width:620px;margin:0 auto;">
+                <div style="padding:0.6rem 1rem;background:#111;border-radius:10px 10px 0 0;display:flex;gap:6px;align-items:center;">
+                    <div class="t-dot" style="background:#ff5f56;"></div>
+                    <div class="t-dot" style="background:#ffbd2e;"></div>
+                    <div class="t-dot" style="background:#27c93f;"></div>
+                    <span style="margin-left:0.75rem;font-size:0.7rem;color:#555;">bash — ~/portfolio</span>
                 </div>
-                <div class="text-gray-400 mt-2">
-                  <span id="typed-text"></span>
+                <div style="padding:1.25rem 1.5rem;min-height:130px;font-size:0.85rem;">
+                    <div style="display:flex;gap:0.5rem;color:#888;">
+                        <span style="color:#4CAF50;">➜</span>
+                        <span style="color:#76885B;">~/portfolio</span>
+                        <span style="color:#aaa;">whoami</span>
+                    </div>
+                    <div style="color:#ccc;margin-top:0.75rem;"><span id="typed-text"></span></div>
+                    <div style="margin-top:0.75rem;display:flex;gap:0.5rem;">
+                        <span style="color:#4CAF50;">➜</span>
+                        <span style="color:#76885B;">~/portfolio</span>
+                        <span style="width:8px;height:1.1em;background:var(--mid);display:inline-block;animation:pulse 1s infinite;vertical-align:middle;"></span>
+                    </div>
                 </div>
-                <div class="mt-4 flex items-center">
-                  <span class="text-green-400 mr-2">➜</span>
-                  <span class="text-blue-400 mr-2">~/portfolio</span>
-                  <span class="w-2 h-5 bg-primary-500 animate-pulse"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST LOGOS ROW -->
+    <section style="padding:2.5rem 2rem;border-top:1px solid var(--surface);border-bottom:1px solid var(--surface);background:var(--white);">
+        <div style="max-width:1100px;margin:0 auto;">
+            <p style="text-align:center;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:1.5rem;font-weight:600;">Technologies I Master</p>
+            <div style="display:flex;justify-content:center;align-items:center;gap:2.5rem;flex-wrap:wrap;opacity:0.5;">
+                <i class="devicon-amazonwebservices-original" style="font-size:2.2rem;color:var(--text);"></i>
+                <i class="devicon-kubernetes-plain" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-terraform-plain" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-python-plain" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-docker-plain" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-postgresql-plain" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-github-original" style="font-size:2rem;color:var(--text);"></i>
+                <i class="devicon-apache-plain" style="font-size:2rem;color:var(--text);"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section style="padding:4rem 2rem;background:var(--bg);">
+        <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;">
+            <div>
+                <div style="font-family:'Century Gothic',AppleGothic,Futura,sans-serif;font-size:3rem;font-weight:800;color:var(--accent);">99.9%</div>
+                <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:0.3rem;">Service Uptime</div>
+            </div>
+            <div>
+                <div style="font-family:'Century Gothic',AppleGothic,Futura,sans-serif;font-size:3rem;font-weight:800;color:var(--accent);">500+</div>
+                <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:0.3rem;">CI/CD Pipelines</div>
+            </div>
+            <div>
+                <div style="font-family:'Century Gothic',AppleGothic,Futura,sans-serif;font-size:3rem;font-weight:800;color:var(--accent);">4+</div>
+                <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:0.3rem;">Years Experience</div>
+            </div>
+            <div>
+                <div style="font-family:'Century Gothic',AppleGothic,Futura,sans-serif;font-size:3rem;font-weight:800;color:var(--accent);">10M+</div>
+                <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:0.3rem;">Records Processed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="padding:6rem 2rem;background:var(--white);">
+        <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+            <div>
+                <div style="display:inline-block; padding:0.4rem 1.2rem; background:var(--bg); border:1px solid var(--surface); border-radius:999px; font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom: 1.5rem;">
+                    ABOUT NEX DEV
                 </div>
-              </div>
-            </div>
-
-            <div
-              class="flex flex-col sm:flex-row gap-6"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <a
-                href="#projects"
-                class="px-10 py-4 bg-primary-600 hover:bg-primary-500 text-white rounded-xl font-bold transition-all flex items-center group"
-              >
-                VIEW DEPLOYMENTS
-                <i
-                  class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"
-                ></i>
-              </a>
-              <a
-                href="#contact"
-                class="px-10 py-4 glass text-white hover:bg-white/10 rounded-xl font-bold transition-all"
-              >
-                GET IN TOUCH
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Stats Section (The King Senior "Proof") -->
-      <section
-        class="py-12 bg-white dark:bg-gray-800 border-y border-gray-100 dark:border-gray-700"
-      >
-        <div class="container mx-auto px-6">
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-              <div
-                class="text-4xl font-black text-primary-600 dark:text-primary-400 mb-2"
-              >
-                99.9%
-              </div>
-              <div
-                class="text-xs font-mono uppercase tracking-widest text-gray-500"
-              >
-                Service Uptime
-              </div>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-              <div
-                class="text-4xl font-black text-primary-600 dark:text-primary-400 mb-2"
-              >
-                500+
-              </div>
-              <div
-                class="text-xs font-mono uppercase tracking-widest text-gray-500"
-              >
-                CI/CD Pipelines
-              </div>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-              <div
-                class="text-4xl font-black text-primary-600 dark:text-primary-400 mb-2"
-              >
-                4+
-              </div>
-              <div
-                class="text-xs font-mono uppercase tracking-widest text-gray-500"
-              >
-                Years Experience
-              </div>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-              <div
-                class="text-4xl font-black text-primary-600 dark:text-primary-400 mb-2"
-              >
-                10M+
-              </div>
-              <div
-                class="text-xs font-mono uppercase tracking-widest text-gray-500"
-              >
-                Records Processed
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section (Enhanced Copy) -->
-      <section id="about" class="py-24 bg-gray-50 dark:bg-gray-900 relative">
-        <div class="container mx-auto px-6">
-          <div class="flex flex-col lg:flex-row items-center gap-16">
-            <div class="lg:w-1/2 relative" data-aos="fade-right">
-              <div
-                class="absolute -top-4 -left-4 w-24 h-24 bg-primary-500/10 rounded-full blur-3xl"
-              ></div>
-              <img
-                src="assets/img/my-profile-img.jpg"
-                class="rounded-2xl shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
-                alt="Elvis Ndayishimiye"
-              />
-              <div
-                class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl z-20 hidden md:block border border-primary-500/20 shadow-2xl"
-              >
-                <p
-                  class="text-sm font-mono text-primary-500 font-bold tracking-tighter italic"
-                >
-                  "Automate or Die."
+                <div class="display" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">
+                    Architecting the<br><em>Next-Gen</em> Infrastructure
+                </div>
+                <p style="color:var(--muted);line-height:1.8;margin-bottom:1.5rem;font-size:1rem;">
+                    Nex Dev is a creative engineering firm — I specialize in bridging the gap between high-velocity development and robust operational stability. As a <span style="font-family:'Fira Code',monospace;color:var(--accent);font-size:0.9rem;">Senior DevOps & Data Engineer</span>, I architect self-healing systems and distributed data architectures that empower businesses to scale without friction.
                 </p>
-              </div>
-            </div>
-            <div class="lg:w-1/2" data-aos="fade-left">
-              <h2
-                class="text-4xl font-black text-gray-900 dark:text-white mb-6 font-heading tracking-tight"
-              >
-                Architecting the
-                <span class="text-primary-500 italic uppercase">Next-Gen</span>
-                Infrastructure
-              </h2>
-              <p
-                class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed"
-              >
-                I specialize in bridging the gap between high-velocity
-                development and robust operational stability. As a
-                <span class="code-accent">Senior DevOps & Data Engineer</span>,
-                I architect self-healing systems and distributed data
-                architectures that empower businesses to scale without friction.
-              </p>
-              <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 font-mono text-sm"
-              >
-                <div class="flex items-center space-x-3 text-gray-500">
-                  <i class="fas fa-check-circle text-primary-500"></i>
-                  <span>Infrastructure as Code (IaC)</span>
-                </div>
-                <div class="flex items-center space-x-3 text-gray-500">
-                  <i class="fas fa-check-circle text-primary-500"></i>
-                  <span>Kubernetes Orchestration</span>
-                </div>
-                <div class="flex items-center space-x-3 text-gray-500">
-                  <i class="fas fa-check-circle text-primary-500"></i>
-                  <span>Distributed Systems</span>
-                </div>
-                <div class="flex items-center space-x-3 text-gray-500">
-                  <i class="fas fa-check-circle text-primary-500"></i>
-                  <span>Data Pipeline Optimization</span>
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-3">
-                <span
-                  class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-xs font-bold border border-gray-100 dark:border-gray-700 shadow-sm"
-                  >AWS CERTIFIED</span
-                >
-                <span
-                  class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-xs font-bold border border-gray-100 dark:border-gray-700 shadow-sm"
-                  >K8S SPECIALIST</span
-                >
-                <span
-                  class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-xs font-bold border border-gray-100 dark:border-gray-700 shadow-sm"
-                  >PYTHON GURU</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section (Keep your structure, add Glow) -->
-      <section id="skills" class="py-24 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-6 text-center">
-          <h2
-            class="text-3xl font-black mb-16 inline-block border-b-4 border-primary-500"
-          >
-            CORE CAPABILITIES
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- AWS -->
-            <div
-              class="text-left glow-card p-6 rounded-2xl glass"
-              data-aos="fade-up"
-            >
-              <div class="flex justify-between items-end mb-4">
-                <h3 class="text-xl font-bold flex items-center">
-                  <i class="fab fa-aws mr-3 text-3xl text-orange-400"></i> Cloud
-                  Architecture
-                </h3>
-                <span class="font-mono text-primary-500">95%</span>
-              </div>
-              <div
-                class="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
-              >
-                <div
-                  class="h-full bg-gradient-to-r from-primary-600 to-primary-300 w-[95%]"
-                ></div>
-              </div>
-            </div>
-            <!-- K8s -->
-            <div
-              class="text-left glow-card p-6 rounded-2xl glass"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="flex justify-between items-end mb-4">
-                <h3 class="text-xl font-bold flex items-center">
-                  <i class="devicon-kubernetes-plain colored mr-3 text-3xl"></i>
-                  Orchestration
-                </h3>
-                <span class="font-mono text-primary-500">90%</span>
-              </div>
-              <div
-                class="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
-              >
-                <div
-                  class="h-full bg-gradient-to-r from-blue-600 to-blue-300 w-[90%]"
-                ></div>
-              </div>
-            </div>
-            <!-- Python -->
-            <div
-              class="text-left glow-card p-6 rounded-2xl glass"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="flex justify-between items-end mb-4">
-                <h3 class="text-xl font-bold flex items-center">
-                  <i class="fab fa-python mr-3 text-3xl text-blue-400"></i>
-                  Advanced Scripting
-                </h3>
-                <span class="font-mono text-primary-500">92%</span>
-              </div>
-              <div
-                class="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
-              >
-                <div
-                  class="h-full bg-gradient-to-r from-yellow-500 to-blue-500 w-[92%]"
-                ></div>
-              </div>
-            </div>
-            <!-- Data -->
-            <div
-              class="text-left glow-card p-6 rounded-2xl glass"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="flex justify-between items-end mb-4">
-                <h3 class="text-xl font-bold flex items-center">
-                  <i class="fas fa-database mr-3 text-3xl text-green-500"></i>
-                  Data Systems
-                </h3>
-                <span class="font-mono text-primary-500">88%</span>
-              </div>
-              <div
-                class="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
-              >
-                <div
-                  class="h-full bg-gradient-to-r from-green-600 to-green-300 w-[88%]"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects (Enhanced layout) -->
-      <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-black mb-4">PROVEN DEPLOYMENTS</h2>
-            <p class="text-gray-500 font-mono">
-              /mnt/storage/production/projects
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1: Enhanced with tags & icons -->
-            <div
-              class="glow-card bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl flex flex-col h-full"
-              data-aos="fade-up"
-            >
-              <div class="relative overflow-hidden group h-48 bg-gray-200">
-                <img
-                  src="assets/img/projects/cloud1.png"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  alt="Cloud Project"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-                >
-                  <div class="flex gap-2">
-                    <span
-                      class="bg-primary-600 text-white text-[10px] px-2 py-1 rounded-md font-bold uppercase"
-                      >Production</span
-                    >
-                    <span
-                      class="bg-blue-600 text-white text-[10px] px-2 py-1 rounded-md font-bold uppercase"
-                      >HA Architecture</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="p-8 flex flex-col flex-grow">
-                <h3
-                  class="text-xl font-black mb-3 text-gray-800 dark:text-white uppercase tracking-tight"
-                >
-                  AWS Infrastructure Genesis
-                </h3>
-                <p
-                  class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed"
-                >
-                  Engineered a multi-region highly available infrastructure
-                  using Terraform. Fully automated VPC, EKS clusters, and RDS
-                  failover protocols. Reduced deployment time by 85%.
+                <p style="color:var(--muted);line-height:1.8;margin-bottom:2rem;font-size:1rem;">
+                    We combine human-centered design, modern engineering, and intelligent automation to deliver both bespoke solutions and off-the-shelf digital products.
                 </p>
-                <div class="flex items-center justify-between mt-auto">
-                  <div class="flex -space-x-2">
-                    <i
-                      class="devicon-terraform-plain colored text-2xl"
-                      title="Terraform"
-                    ></i>
-                    <i
-                      class="devicon-amazonwebservices-original colored text-2xl"
-                      title="AWS"
-                    ></i>
-                    <i
-                      class="devicon-github-original text-2xl dark:invert"
-                      title="GitHub Actions"
-                    ></i>
-                  </div>
-                  <a
-                    href="https://github.com/elvisquant/elvisquant-portofolio"
-                    class="text-primary-500 font-bold text-sm hover:underline"
-                    >SOURCE_CODE <i class="fas fa-chevron-right ml-1"></i
-                  ></a>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.88rem;">
+                        <i data-feather="check-circle" style="width:16px;height:16px;color:var(--accent);flex-shrink:0;"></i> Infrastructure as Code
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.88rem;">
+                        <i data-feather="check-circle" style="width:16px;height:16px;color:var(--accent);flex-shrink:0;"></i> Kubernetes Orchestration
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.88rem;">
+                        <i data-feather="check-circle" style="width:16px;height:16px;color:var(--accent);flex-shrink:0;"></i> Distributed Systems
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.88rem;">
+                        <i data-feather="check-circle" style="width:16px;height:16px;color:var(--accent);flex-shrink:0;"></i> Data Pipeline Optimization
+                    </div>
                 </div>
-              </div>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <span style="padding:0.35rem 0.9rem;background:var(--bg);border:1px solid var(--surface);border-radius:999px;font-size:0.75rem;font-weight:600;color:var(--accent);">AWS CERTIFIED</span>
+                    <span style="padding:0.35rem 0.9rem;background:var(--bg);border:1px solid var(--surface);border-radius:999px;font-size:0.75rem;font-weight:600;color:var(--accent);">K8S SPECIALIST</span>
+                    <span style="padding:0.35rem 0.9rem;background:var(--bg);border:1px solid var(--surface);border-radius:999px;font-size:0.75rem;font-weight:600;color:var(--accent);">PYTHON GURU</span>
+                </div>
             </div>
 
-            <!-- Add more projects with same enhanced styling as needed... (Project 2-6 omitted for brevity but follow this pattern) -->
-          </div>
+            <div style="position:relative;">
+                <!-- Professional Workspace Image -->
+                <div style="background:var(--bg);border-radius:4px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--surface);">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover;" alt="Engineering Workspace">
+                </div>
+                <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--white);border:1px solid var(--surface);border-radius:8px;padding:1rem 1.25rem;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+                    <p style="font-family:'Fira Code',monospace;font-size:0.85rem;color:var(--accent);font-weight:500;">"Automate or Die."</p>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Contact (Premium Redesign) -->
-      <section
-        id="contact"
-        class="py-24 bg-primary-600 text-white relative overflow-hidden"
-      >
-        <div
-          class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"
-        ></div>
-        <div class="container mx-auto px-6 relative z-10">
-          <div
-            class="max-w-4xl mx-auto glass p-10 md:p-16 rounded-[40px] shadow-2xl border-white/20"
-          >
-            <div class="text-center mb-12">
-              <h2
-                class="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tighter"
-              >
-                Ready to Scale?
-              </h2>
-              <p class="text-primary-100 font-mono italic">
-                Initiating communication protocol...
-              </p>
+    <section id="skills" style="padding:5rem 2rem; background:var(--bg);">
+        <div style="max-width:1100px; margin:0 auto;">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <div style="display:inline-block; padding:0.4rem 1.2rem; background:var(--white); border:1px solid var(--surface); border-radius:999px; font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom: 1.5rem;">
+                    CORE CAPABILITIES
+                </div>
+                <div class="display" style="font-size:clamp(2rem, 5vw, 3.2rem);">
+                    My <em>Technical</em> Stack
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div class="space-y-8">
-                <div class="flex items-center group">
-                  <div
-                    class="w-12 h-12 glass rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-all"
-                  >
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  <div>
-                    <p class="text-xs uppercase font-mono text-primary-200">
-                      Direct Email
-                    </p>
-                    <p class="font-bold">elvis.ndayishimiye@bindava.com</p>
-                  </div>
-                </div>
-                <div class="flex items-center group">
-                  <div
-                    class="w-12 h-12 glass rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-all"
-                  >
-                    <i class="fas fa-phone"></i>
-                  </div>
-                  <div>
-                    <p class="text-xs uppercase font-mono text-primary-200">
-                      Voice / WhatsApp
-                    </p>
-                    <p class="font-bold">+27 78 119 9072</p>
-                  </div>
-                </div>
-                <div class="flex items-center group">
-                  <div
-                    class="w-12 h-12 glass rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-all"
-                  >
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div>
-                    <p class="text-xs uppercase font-mono text-primary-200">
-                      Base of Operations
-                    </p>
-                    <p class="font-bold">Randburg, Johannesburg, ZA</p>
-                  </div>
-                </div>
-              </div>
+            <div class="skills-split-container">
+                <!-- LEFT: Visual Orbit -->
+                <div class="skills-orbit-container">
+                    <div class="orbit-ring orbit-ring-outer"></div>
+                    <div class="orbit-ring orbit-ring-accent"></div>
+                    <div class="orbit-ring orbit-ring-inner"></div>
 
-              <form class="space-y-4">
-                <input
-                  type="text"
-                  placeholder="YOUR_NAME"
-                  class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 focus:bg-white/20 focus:outline-none transition-all placeholder:text-white/50 font-mono"
-                />
-                <input
-                  type="email"
-                  placeholder="EMAIL_ADDRESS"
-                  class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 focus:bg-white/20 focus:outline-none transition-all placeholder:text-white/50 font-mono"
-                />
-                <textarea
-                  rows="4"
-                  placeholder="PROJECT_DETAILS"
-                  class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 focus:bg-white/20 focus:outline-none transition-all placeholder:text-white/50 font-mono"
-                ></textarea>
-                <button
-                  class="w-full bg-white text-primary-600 font-black py-5 rounded-xl hover:shadow-2xl transition-all hover:-translate-y-1 uppercase tracking-widest"
-                >
-                  Transmit Message
-                </button>
-              </form>
+                    <div class="orbit-center">
+                        <div class="orbit-center-inner">EN</div>
+                    </div>
+
+                    <div class="orbit-spin">
+                        <div class="orbit-pod" style="top:0%;left:50%;">
+                            <i class="devicon-amazonwebservices-original" style="color:#FF9900;"></i>
+                        </div>
+                        <div class="orbit-pod" style="top:34%;left:98%;">
+                            <i class="devicon-kubernetes-plain" style="color:#326CE5;"></i>
+                        </div>
+                        <div class="orbit-pod" style="top:90%;left:80%;">
+                            <i class="devicon-python-plain" style="color:#3776AB;"></i>
+                        </div>
+                        <div class="orbit-pod" style="top:90%;left:20%;">
+                            <i class="devicon-terraform-plain" style="color:#623CE4;"></i>
+                        </div>
+                        <div class="orbit-pod" style="top:34%;left:2%;">
+                            <i class="devicon-docker-plain" style="color:#2496ED;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Technical Descriptions -->
+                <div class="skills-expertise">
+                    <div class="skill-desc-block">
+                        <div class="skill-desc-title">
+                            <i data-feather="cloud"></i>
+                            Cloud Architecture
+                        </div>
+                        <div class="skill-desc-text">
+                            Architecting high-availability AWS ecosystems using Well-Architected frameworks for global-scale stability.
+                        </div>
+                    </div>
+
+                    <div class="skill-desc-block">
+                        <div class="skill-desc-title">
+                            <i data-feather="box"></i>
+                            K8s & Orchestration
+                        </div>
+                        <div class="skill-desc-text">
+                            Production-grade Kubernetes management with focus on zero-downtime deployments and auto-scaling logic.
+                        </div>
+                    </div>
+
+                    <div class="skill-desc-block">
+                        <div class="skill-desc-title">
+                            <i data-feather="database"></i>
+                            Data Systems
+                        </div>
+                        <div class="skill-desc-text">
+                            Designing distributed data pipelines and self-healing storage solutions for massive-scale datasets.
+                        </div>
+                    </div>
+
+                    <div class="skill-desc-block">
+                        <div class="skill-desc-title">
+                            <i data-feather="cpu"></i>
+                            Automation / IaC
+                        </div>
+                        <div class="skill-desc-text">
+                            End-to-end automation with Terraform and Python to eliminate manual toil and ensure consistency.
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-white py-12 ml-0 lg:ml-72">
-      <div
-        class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60 text-sm font-mono"
-      >
-        <p>© 2024 ELVIS_QUANT — ALL SYSTEMS GO</p>
-        <p>DESIGNED_BY_BINDAVA v2.0</p>
-      </div>
+    <!-- SERVICES REDESIGN -->
+    <section id="services" style="padding:6rem 2rem; background: #fafaf8; position: relative;">
+        <div style="max-width:1100px; margin:0 auto;">
+
+            <!-- Header -->
+            <div style="text-align:center; margin-bottom: 4rem;">
+                <div style="display:inline-block; padding:0.4rem 1.2rem; background:#fff; border:1px solid #eaeaea; border-radius:999px; font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom: 1.5rem;">
+                    OUR SERVICES
+                </div>
+                <div class="display" style="font-size:clamp(1.8rem, 4vw, 3rem); max-width:850px; margin:0 auto; line-height: 1.1; color: var(--text);">
+                    How we turn your ideas into digital solutions that solve real problems
+                </div>
+            </div>
+
+            <!-- Dashed Divider -->
+            <div style="border-top: 1px dashed rgba(0,0,0,0.15); margin-bottom: 3rem;"></div>
+
+            <!-- Redesigned Grid -->
+            <div class="services-redesign-container">
+
+                <!-- Logiciels -->
+                <div class="service-card-redesign border-right">
+                    <div style="display:flex; align-items:center; gap: 1rem; margin-bottom: 1.2rem;">
+                        <div class="service-icon-circle">
+                            <i data-feather="code"></i>
+                        </div>
+                        <div class="service-card-title">Software Dev</div>
+                    </div>
+                    <p class="service-card-desc">
+                        Custom CRM, management platforms, internal tools that streamline operations.
+                    </p>
+                    <img src="./assets/images/software_man.png" class="service-card-img" style="height: 220px;" alt="Software Development" onerror="this.style.display='none'">
+                </div>
+
+                <!-- Sites web -->
+                <div class="service-card-redesign">
+                    <div style="display:flex; align-items:center; gap: 1rem; margin-bottom: 1.2rem;">
+                        <div class="service-icon-circle">
+                            <i data-feather="globe"></i>
+                        </div>
+                        <div class="service-card-title">Web Development</div>
+                    </div>
+                    <p class="service-card-desc">
+                        Modern, responsive websites, landing pages & e-commerce solutions.
+                    </p>
+                    <img src="./assets/images/software_woman.png" class="service-card-img" style="height: 220px;" alt="Web Development" onerror="this.style.display='none'">
+                </div>
+
+                <!-- Full Width AI Block -->
+                <div class="service-card-redesign full-width">
+                    <div style="display:flex; align-items:center; gap: 1rem; margin-bottom: 1.2rem;">
+                        <div class="service-icon-circle">
+                            <i data-feather="cpu"></i>
+                        </div>
+                        <div class="service-card-title">AI & Automation</div>
+                    </div>
+                    <p class="service-card-desc" style="max-width: 45%;">
+                        Intelligent chatbots, workflow automation, and smart integrations.
+                    </p>
+                    <!-- Using high-quality placeholder for Robot due to server capacity limits -->
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" class="service-card-img" style="height: 260px; right: 2rem; border-radius: 0px 0px 0 0; object-fit: cover; bottom: -10px;" alt="AI Solutions" onerror="this.style.display='none'">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="padding:6rem 2rem;background:var(--bg);">
+        <div style="max-width:1100px;margin:0 auto;">
+            <div style="text-align:center;margin-bottom:3.5rem;">
+                <div style="display:inline-block; padding:0.4rem 1.2rem; background:#fff; border:1px solid #eaeaea; border-radius:999px; font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom: 1.5rem;">
+                    PROVEN WORK
+                </div>
+                <div class="display" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Proven <em>Deployments</em></div>
+            </div>
+
+            <!-- SWIPER SLIDER -->
+            <div class="swiper projects-slider">
+                <div class="swiper-wrapper">
+
+                    <!-- PROJECT 1: AWS -->
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div style="background:var(--surface);height:220px;position:relative;overflow:hidden;">
+                                <img src="./aws_infrastructure_genesis_1776171009063.png" style="width:100%;height:100%;object-fit:cover;" alt="AWS Infrastructure">
+                                <div style="position:absolute;bottom:0.75rem;left:0.75rem;display:flex;gap:0.4rem;">
+                                    <span style="background:var(--accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">Production</span>
+                                    <span style="background:var(--mid);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">HA Architecture</span>
+                                </div>
+                            </div>
+                            <div style="padding:1.5rem;flex-grow:1;display:flex;flex-direction:column;">
+                                <div style="font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.6rem;">AWS Infrastructure Genesis</div>
+                                <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Engineered a multi-region highly available infrastructure using Terraform. Fully automated VPC, EKS clusters, and RDS failover protocols. Reduced deployment time by 85%.</p>
+                                <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;">
+                                    <div style="display:flex;gap:0.5rem;">
+                                        <i class="devicon-terraform-plain colored" style="font-size:1.3rem;" title="Terraform"></i>
+                                        <i class="devicon-amazonwebservices-original colored" style="font-size:1.3rem;" title="AWS"></i>
+                                        <i class="devicon-github-original" style="font-size:1.3rem;color:var(--text);" title="GitHub Actions"></i>
+                                    </div>
+                                    <a href="https://github.com/elvisquant/elvisquant-portofolio" style="color:var(--accent);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">
+                                        Source <i data-feather="external-link" style="width:13px;height:13px;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2: DATA -->
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div style="background:var(--surface);height:220px;position:relative;overflow:hidden;">
+                                <img src="./data_lake_pipeline_1776171052952.png" style="width:100%;height:100%;object-fit:cover;" alt="Data Lake Pipeline">
+                                <div style="position:absolute;bottom:0.75rem;left:0.75rem;display:flex;gap:0.4rem;">
+                                    <span style="background:var(--accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">Data Eng</span>
+                                    <span style="background:var(--mid);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">10M+ Records</span>
+                                </div>
+                            </div>
+                            <div style="padding:1.5rem;flex-grow:1;display:flex;flex-direction:column;">
+                                <div style="font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.6rem;">Real-Time Data Lake Pipeline</div>
+                                <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Architected an end-to-end streaming pipeline ingesting 10M+ records/day using Kafka, Spark Structured Streaming, and Delta Lake with 99.9% uptime SLA.</p>
+                                <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;">
+                                    <div style="display:flex;gap:0.5rem;">
+                                        <i class="devicon-apachekafka-original" style="font-size:1.3rem;color:var(--text);" title="Kafka"></i>
+                                        <i class="devicon-python-plain colored" style="font-size:1.3rem;" title="Python"></i>
+                                        <i class="devicon-postgresql-plain colored" style="font-size:1.3rem;" title="PostgreSQL"></i>
+                                    </div>
+                                    <a href="https://github.com/elvisquant" style="color:var(--accent);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">
+                                        Source <i data-feather="external-link" style="width:13px;height:13px;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 3: GITOPS -->
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div style="background:var(--surface);height:220px;position:relative;overflow:hidden;">
+                                <img src="https://images.unsplash.com/photo-1667372333374-9d44583858a3?auto=format&fit=crop&w=800&q=80" style="width:100%;height:100%;object-fit:cover;" alt="GitOps Framework">
+                                <div style="position:absolute;bottom:0.75rem;left:0.75rem;display:flex;gap:0.4rem;">
+                                    <span style="background:var(--accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">DevOps</span>
+                                    <span style="background:var(--mid);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:999px;font-weight:600;text-transform:uppercase;">CI/CD</span>
+                                </div>
+                            </div>
+                            <div style="padding:1.5rem;flex-grow:1;display:flex;flex-direction:column;">
+                                <div style="font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.6rem;">GitOps Deployment Framework</div>
+                                <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Designed a full GitOps workflow with ArgoCD and Helm charts enabling zero-downtime deployments across 5 environments with automated rollback capabilities.</p>
+                                <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;">
+                                    <div style="display:flex;gap:0.5rem;">
+                                        <i class="devicon-kubernetes-plain colored" style="font-size:1.3rem;" title="Kubernetes"></i>
+                                        <i class="devicon-github-original" style="font-size:1.3rem;color:var(--text);" title="GitHub Actions"></i>
+                                        <i class="devicon-docker-plain colored" style="font-size:1.3rem;" title="Docker"></i>
+                                    </div>
+                                    <a href="https://github.com/elvisquant" style="color:var(--accent);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">
+                                        Source <i data-feather="external-link" style="width:13px;height:13px;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="https://github.com/elvisquant" class="btn-outline" style="font-size:0.9rem;padding:0.7rem 2rem;display:inline-flex;align-items:center;gap:0.5rem;">
+                    <i data-feather="github" style="width:16px;height:16px;"></i> View All on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section style="padding:6rem 2rem;background:var(--white);">
+        <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+            <div>
+                <div class="display" style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1.5rem;">
+                    Ready to <em>accelerate the growth</em> of your infrastructure with us?
+                </div>
+                <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+                    <a href="#contact" class="btn-primary" style="font-size:0.9rem;padding:0.7rem 1.8rem;">Start a project</a>
+                    <a href="#contact" class="btn-outline" style="font-size:0.9rem;padding:0.7rem 1.8rem;">Book a call</a>
+                </div>
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <div style="width:220px;height:220px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--surface);">
+                    <i data-feather="server" style="width:80px;height:80px;color:var(--mid);opacity:0.4;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="padding:6rem 2rem;background:var(--bg);">
+        <div style="max-width:900px;margin:0 auto;">
+            <div style="text-align:center;margin-bottom:3rem;">
+                <div style="display:inline-block; padding:0.4rem 1.2rem; background:var(--white); border:1px solid var(--surface); border-radius:999px; font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom: 1.5rem;">
+                    GET IN TOUCH
+                </div>
+                <div class="display" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Ready to <em>Scale?</em></div>
+            </div>
+
+            <div style="background:var(--white);border-radius:4px;padding:3rem;border:1px solid var(--surface);display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div style="width:46px;height:46px;background:var(--bg);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);">
+                            <i data-feather="mail" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;">Email</div>
+                            <div style="font-weight:600;font-size:0.9rem;">elvis.ndayishimiye@bindava.com</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div style="width:46px;height:46px;background:var(--bg);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);">
+                            <i data-feather="phone" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;">WhatsApp / Voice</div>
+                            <div style="font-weight:600;font-size:0.9rem;">+27 78 119 9072</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div style="width:46px;height:46px;background:var(--bg);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);">
+                            <i data-feather="map-pin" style="width:18px;height:18px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;">Location</div>
+                            <div style="font-weight:600;font-size:0.9rem;">Randburg, Johannesburg, ZA</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+                        <a href="https://github.com/elvisquant" style="width:40px;height:40px;background:var(--bg);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">
+                            <i data-feather="github" style="width:17px;height:17px;"></i>
+                        </a>
+                        <a href="#" style="width:40px;height:40px;background:var(--bg);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">
+                            <i data-feather="linkedin" style="width:17px;height:17px;"></i>
+                        </a>
+                        <a href="https://x.com/elvisquant" style="width:40px;height:40px;background:var(--bg);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">
+                            <i data-feather="twitter" style="width:17px;height:17px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form style="display:flex;flex-direction:column;gap:1.5rem;" onsubmit="return false;">
+                    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                        <label style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:700;">Full Name</label>
+                        <input type="text" placeholder="YOUR_NAME" style="width:100%;padding:1rem;border:1px solid var(--surface);border-radius:4px;background:var(--white);font-family:inherit;font-size:0.88rem;color:var(--text);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--surface)'" />
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                        <label style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:700;">Email Address</label>
+                        <input type="email" placeholder="EMAIL_ADDRESS" style="width:100%;padding:1rem;border:1px solid var(--surface);border-radius:4px;background:var(--white);font-family:inherit;font-size:0.88rem;color:var(--text);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--surface)'" />
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                        <label style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:700;">Project Scope</label>
+                        <textarea rows="4" placeholder="PROJECT_DETAILS" style="width:100%;padding:1rem;border:1px solid var(--surface);border-radius:4px;background:var(--white);font-family:inherit;font-size:0.88rem;color:var(--text);outline:none;resize:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--surface)'"></textarea>
+                    </div>
+                    <button class="btn-primary" style="width:100%;padding:1.1rem;font-size:0.85rem;border-radius:4px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;box-shadow:none;">
+                        Send <i data-feather="send" style="width:14px;height:14px;margin-left:0.5rem;" class="inline-block"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#1a1a18;color:#aaa;padding:3rem 2rem;">
+        <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;flex-wrap:wrap;">
+            <div>
+                <a href="#hero" class="navbar-logo-pill" style="margin-bottom:1.5rem; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <div class="logo-initials-circle">EN</div>
+                    <span class="logo-brand-text" style="color:#fff;">ELVIS</span>
+                </a>
+                <p style="font-size:0.85rem;line-height:1.7;max-width:240px;">Principal DevOps & Data Systems Architect building next-gen infrastructure.</p>
+            </div>
+            <div>
+                <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#666;margin-bottom:1rem;font-weight:600;">Navigation</div>
+                <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.85rem;">
+                    <a href="#hero" style="color:#aaa;text-decoration:none;">Home</a>
+                    <a href="#about" style="color:#aaa;text-decoration:none;">About</a>
+                    <a href="#services" style="color:#aaa;text-decoration:none;">Services</a>
+                    <a href="#projects" style="color:#aaa;text-decoration:none;">Projects</a>
+                </div>
+            </div>
+            <div>
+                <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#666;margin-bottom:1rem;font-weight:600;">Contact</div>
+                <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.85rem;">
+                    <span>elvis.ndayishimiye@bindava.com</span>
+                    <span>+27 78 119 9072</span>
+                    <span>Johannesburg, ZA</span>
+                </div>
+            </div>
+            <div>
+                <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#666;margin-bottom:1rem;font-weight:600;">Social</div>
+                <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.85rem;">
+                    <a href="https://github.com/elvisquant" style="color:#aaa;text-decoration:none;display:flex;align-items:center;gap:0.4rem;"><i data-feather="github" style="width:13px;height:13px;"></i> GitHub</a>
+                    <a href="#" style="color:#aaa;text-decoration:none;display:flex;align-items:center;gap:0.4rem;"><i data-feather="linkedin" style="width:13px;height:13px;"></i> LinkedIn</a>
+                    <a href="https://x.com/elvisquant" style="color:#aaa;text-decoration:none;display:flex;align-items:center;gap:0.4rem;"><i data-feather="twitter" style="width:13px;height:13px;"></i> Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div style="max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid #2a2a28;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;flex-wrap:wrap;gap:0.5rem;">
+            <span>© 2026 ELVIS_QUANT — ALL SYSTEMS GO</span>
+            <span>DESIGNED_BY_BINDAVA v2.0</span>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.4
+            }
+        }
+
+        @media(max-width:768px) {
+            #hamburger {
+                display: block !important;
+            }
+
+            section>div[style*="grid-template-columns:1fr 1fr"],
+            section>div[style*="grid-template-columns:1fr 2fr"],
+            footer>div[style*="grid-template-columns:2fr"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .btn-outline#cta-call {
+                display: none !important;
+            }
+        }
+
+        @media(min-width:769px) {
+            #cta-call {
+                display: inline-block !important;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      // Initialize AOS
-      AOS.init({ duration: 1000, once: true });
+        feather.replace();
 
-      // Scroll Progress
-      window.addEventListener("scroll", () => {
-        const winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop;
-        const height =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-      });
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const s = document.body.scrollTop || document.documentElement.scrollTop;
+            const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (document.getElementById('scroll-progress')) {
+                document.getElementById('scroll-progress').style.width = (s / h * 100) + '%';
+            }
+        });
 
-      // Typed.js
-      new Typed("#typed-text", {
-        strings: [
-          "A Principal DevOps Engineer.",
-          "A Cloud Infrastructure Architect.",
-          "A Distributed Systems Specialist.",
-          "A Senior Data Engineer.",
-          "Converting Code into Performance.",
-        ],
-        typeSpeed: 40,
-        backSpeed: 20,
-        loop: true,
-      });
+        // Typed.js
+        if (document.querySelector('#typed-text')) {
+            new Typed('#typed-text', {
+                strings: [
+                    'A Principal DevOps Engineer.',
+                    'A Cloud Infrastructure Architect.',
+                    'A Distributed Systems Specialist.',
+                    'A Senior Data Engineer.',
+                    'Converting Code into Performance.',
+                ],
+                typeSpeed: 40,
+                backSpeed: 20,
+                loop: true,
+            });
+        }
 
-      // Mobile Menu
-      const menuToggle = document.getElementById("menu-toggle");
-      const header = document.getElementById("header");
-      menuToggle.addEventListener("click", () => {
-        header.classList.toggle("-translate-x-full");
-        const icon = menuToggle.querySelector("i");
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
-      });
+        // Swiper Initialization
+        const swiper = new Swiper('.projects-slider', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            grabCursor: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
 
-      // Theme Toggle
-      const themeToggle = document.getElementById("theme-toggle");
-      const html = document.documentElement;
-      themeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        const icon = themeToggle.querySelector("i");
-        icon.classList.toggle("fa-moon");
-        icon.classList.toggle("fa-sun");
-      });
-    </script>
-  </body>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+            });
+        }
+
+        function closeMobile() {
+            if (mobileMenu) mobileMenu.classList.remove('open');
+        }
+    </script> <!-- LANGUAGE TOGGLE -->
+    <div class="lang-toggle">
+        <div class="lang-btn">FR</div>
+        <div class="lang-btn active">EN</div>
+    </div>
+
+</body>
+
 </html>
